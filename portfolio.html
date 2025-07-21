@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tanya  | Dynamic Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom right, #0f0f0f, #1f1f1f);
+      color: white;
+      overflow-x: hidden;
+    }
+    header {
+      text-align: center;
+      padding: 2rem;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      color: #00f7ff;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    nav button {
+      background: none;
+      border: 1px solid #00f7ff;
+      color: #00f7ff;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    nav button.active {
+      background-color: #00f7ff;
+      color: #000;
+    }
+    section {
+      display: none;
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+      animation: fadeIn 0.5s ease-in;
+    }
+    section.active {
+      display: block;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .skill-box {
+      background: #2a2a2a;
+      padding: 1rem;
+      border-radius: 12px;
+      text-align: center;
+      border: 1px solid #444;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .project-card {
+      background: #2a2a2a;
+      padding: 1rem;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      border: 1px solid #444;
+    }
+    form input[type=email] {
+      padding: 0.5rem;
+      width: 70%;
+      border-radius: 8px;
+      border: none;
+      margin-right: 1rem;
+    }
+    form button {
+      padding: 0.5rem 1rem;
+      background-color: #00f7ff;
+      border: none;
+      color: #000;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Hey, I'm Tanya 👋</h1>
+    <p>Aspiring Java Backend Dev | DSA Enthusiast | Goal: ₹25–30 LPA Remote Job 💻</p>
+  </header>
+
+  <nav>
+    <button onclick="showTab('about')" class="active">About</button>
+    <button onclick="showTab('skills')">Skills</button>
+    <button onclick="showTab('projects')">Projects</button>
+    <button onclick="showTab('contact')">Contact</button>
+  </nav>
+
+  <section id="about" class="active">
+    <p>I am preparing rigorously for high-paying backend roles by mastering Java, DSA, and full-stack web development. I love solving coding problems and building real-world apps.</p>
+  </section>
+
+  <section id="skills">
+    <div class="skills-grid">
+      <div class="skill-box">Java</div>
+      <div class="skill-box">DSA</div>
+      <div class="skill-box">HTML/CSS</div>
+      <div class="skill-box">JavaScript</div>
+      <div class="skill-box">Git/GitHub</div>
+      <div class="skill-box">Responsive Design</div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="project-card">
+      <h3>Juspay DSA Tracker</h3>
+      <p>Track your daily DSA grind, maintain streaks, and prepare with custom tasks for top tech offers!</p>
+    </div>
+    <div class="project-card">
+      <h3>Dynamic Portfolio</h3>
+      <p>This very interactive and animated portfolio built with HTML, CSS, and JavaScript!</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <p>Drop your email and I’ll get back to you soon:</p>
+    <form onsubmit="event.preventDefault(); alert('Message sent!')">
+      <input type="email" placeholder="your@email.com" required />
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 Tanya. 
+  </footer>
+
+  <script>
+    function showTab(id) {
+      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+      document.querySelector(`#${id}`).classList.add('active');
+      document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
+      document.querySelector(`nav button[onclick="showTab('${id}')"]`).classList.add('active');
+    }
+  </script>
+</body>
+</html>
+
+
